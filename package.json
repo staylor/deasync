@@ -1,0 +1,24 @@
+{
+  "name": "deasync",
+  "version": "0.1.16",
+  "description": "Turns async function into sync via JavaScript wrapper of Node event loop",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "node ./build.js",
+    "test": "node ./test.js && node ./quick-test.js"
+  },
+  "dependencies": {
+    "bindings": "^1.5.0",
+    "node-addon-api": "^1.7.1"
+  },
+  "keywords": [
+    "async",
+    "sync",
+    "sleep",
+    "async wrapper"
+  ],
+  "engines": {
+    "node": ">=0.11.0"
+  }
+}
