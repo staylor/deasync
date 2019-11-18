@@ -71,9 +71,10 @@ if (!force) {
 
 // Build it
 function build() {
+  const child = cp.execSync('which python');
   cp.spawn(
     process.platform === 'win32' ? 'node-gyp.cmd' : 'node-gyp',
-    ['rebuild', '--python', '$(which python)'].concat(args),
+    ['rebuild', `--python=${child.stdout}`].concat(args),
     {
       stdio: 'inherit',
     }
