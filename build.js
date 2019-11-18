@@ -71,9 +71,13 @@ if (!force) {
 
 // Build it
 function build() {
-  cp.spawn(process.platform === 'win32' ? 'node-gyp.cmd' : 'node-gyp', ['rebuild'].concat(args), {
-    stdio: 'inherit',
-  }).on('exit', function(err) {
+  cp.spawn(
+    process.platform === 'win32' ? 'node-gyp.cmd' : 'node-gyp',
+    ['rebuild', '--python', '$(which python)'].concat(args),
+    {
+      stdio: 'inherit',
+    }
+  ).on('exit', function(err) {
     if (err) {
       if (err === 127) {
         console.error(
